@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+
+  "name": "steem-arbitrag-cloudfara",
+
+  "short_name": "steem-arbitrag-cloudfara",
+
+  "version": "1.0.0",
+
+  "description": "Steam Community Market arbitrage helper using CSFloat.",
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://steamcommunity.com/*",
+    "https://steemarditragcloudfare.dtyreev.workers.dev/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://steamcommunity.com/market/*"
+      ],
+
+      "js": [
+        "cache.js",
+        "calculator.js",
+        "dom.js",
+        "api.js",
+        "content.js"
+      ],
+
+      "css": [
+        "styles.css"
+      ],
+
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_title": "steem-arbitrag-cloudfara"
+  }
+}
